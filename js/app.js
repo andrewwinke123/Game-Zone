@@ -13,6 +13,12 @@ let computerScore = 0
 
 
 /*------------------------ Cached Element References ------------------------*/
+const nameInputEl = document.getElementById('name-input')
+const nameSubmitEl = document.getElementById('name-submit')
+const nameInputContainerEl = document.getElementById('name-input-container')
+const gameContainerEl = document.getElementById('game-container')
+let playerName = "";  // Create a new variable for the player's name
+
 const resultDisplayEl = document.getElementById('result-display')
 const playerScoreEl = document.getElementById('player-score')
 const computerScoreEl = document.getElementById('computer-score')
@@ -22,6 +28,8 @@ const computerScoreEl = document.getElementById('computer-score')
 document.getElementById('rock').addEventListener('click', play)
 document.getElementById('paper').addEventListener('click', play)
 document.getElementById('scissors').addEventListener('click', play)
+nameSubmitEl.addEventListener('click', setName)
+
 
 
 /*-------------------------------- Functions --------------------------------*/
