@@ -1,3 +1,7 @@
+import { confetti } from './confetti.js'
+import * as gameAudio from './audio.js'
+
+
 /*-------------------------------- Constants --------------------------------*/
 const choices = ['rock', 'paper', 'scissors']
 
@@ -29,14 +33,20 @@ function getComputerChoice() {
 function compare() {
   if (playerChoice === computerChoice) {
     msg = 'You tied!'
+    gameAudio.playLoseSound()
   } else if (playerChoice === choices[0] && computerChoice === choices[1]) {
     msg = 'You LOOOOOOSE'
+    gameAudio.playLoseSound()
   } else if (playerChoice === choices[1] && computerChoice === choices[2]) {
     msg = 'You LOOOOOOSE'
+    gameAudio.playLoseSound()
   } else if (playerChoice === choices[2] && computerChoice === choices[0]) {
     msg = 'You LOOOOOOSE'
+    gameAudio.playLoseSound()
   } else {
     msg = 'Congrats! you WIN!!!!'
+    gameAudio.playWinSound()
+    confetti.start(1000)
   }
 }
 
