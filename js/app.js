@@ -17,3 +17,6 @@ document.getElementById('scissors').addEventListener('click', play)
 
 
 /*-------------------------------- Functions --------------------------------*/
+function play (evt) {
+  console.log(evt.target.id)
+}
