@@ -6,6 +6,19 @@ html, body {
   background-color: lightblue;
 }
 
+.score-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+#computer-score {
+  color: red;
+}
+
+#player-score, #computer-score {
+  margin: 0 20px;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -30,4 +43,14 @@ button:hover {
   border: 1px solid rgba(0,0,0,0.5);
 	cursor: pointer;
   background-color: lightblue;
+}
+
+.popup-message {
+  display: inline-block;
+  font-size: 2em;  // Adjust as needed to make the font size bigger
+  background-color: #ffffff;  // Giving it a white background so it pops up more
+  padding: 5px 15px;  // Adding some padding to give it space
+  margin-left: 10px;  // Optional: space between main content and the message
+  border-radius: 5px;  // Rounded corners for aesthetics
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.3);  // Shadow to give it a 'lifted' appearance
 }

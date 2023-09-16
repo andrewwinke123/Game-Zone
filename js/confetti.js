@@ -210,7 +210,7 @@ var confetti = {
 			}
 		}
 	}
-})()
+})();
 
 export {
   confetti
