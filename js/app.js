@@ -26,15 +26,21 @@ function getComputerChoice() {
   computerChoice = choices[randomIndex]
 }
 
+function compare() {
+  if (playerChoice === computerChoice) {
+    msg = 'You tied!'
+  } else if (playerChoice === choices[0] && computerChoice === choices[1]) {
+    msg = 'You LOOOOOOSE'
+  } else if (playerChoice === choices[1] && computerChoice === choices[2]) {
+    msg = 'You LOOOOOOSE'
+  } else if (playerChoice === choices[2] && computerChoice === choices[0]) {
+    msg = 'You LOOOOOOSE'
+  } else {
+    msg = 'Congrats! you WIN!!!!'
+  }
+}
+
 function play(evt) {
   getPlayerChoice(evt)
   console.log(playerChoice)
 }
-
-
-
-// 4) Handle generating random selections for the computer player
-
-// 5) Compare the player choice to the computer choice, and check for a winner
-
-// 6) Render a win/lose/tie message to the player
