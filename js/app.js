@@ -102,6 +102,10 @@ function render() {
   }
 
   resultDisplayEl.textContent = `${msgEl.textContent}`
+  // Move the result-display to the position above the player's choice button
+  const buttonPosition = document.getElementById(playerChoice).getBoundingClientRect()
+  resultDisplayEl.style.left = `${buttonPosition.left}px`
+  resultDisplayEl.style.top = `${buttonPosition.top - resultDisplayEl.clientHeight - 20}px`
 
   playerScoreEl.textContent = `Your score: ${playerScore}`
   computerScoreEl.textContent = `Computer score: ${computerScore}`
