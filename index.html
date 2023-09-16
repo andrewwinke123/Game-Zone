@@ -12,18 +12,26 @@
 
 <body>
   <div class="container">
-    <div class="score-container">
-      <h5 id="player-score"></h5>
-      <h5 id="computer-score"></h5>
+    <div id="name-input-container">
+      <h2>Enter Your Name:</h2>
+      <input type="text" id="name-input" placeholder="Type your name here...">
+      <button id="name-submit">Enter</button>
     </div>
-    <div>
-      <h1>Rock Paper Scissors</h1>
-      <h3 id="result-display"></h3>
-    </div>
-    <div>
-			<button id="rock">🪨</button>
-      <button id="paper">📄</button>
-      <button id="scissors">✂️</button>
+    <!-- Game container -->
+    <div id="game-container" style="display: none;">
+      <div class="score-container">
+        <h5 id="player-score"></h5>
+        <h5 id="computer-score"></h5>
+      </div>
+      <div>
+        <h1>Rock Paper Scissors</h1>
+        <h3 id="result-display"></h3>
+      </div>
+      <div>
+        <button id="rock">🪨</button>
+        <button id="paper">📄</button>
+        <button id="scissors">✂️</button>
+      </div>
     </div>
   </div>
 </body>
