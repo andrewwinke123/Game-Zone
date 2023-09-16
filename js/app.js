@@ -17,7 +17,7 @@ const nameInputEl = document.getElementById('name-input')
 const nameSubmitEl = document.getElementById('name-submit')
 const nameInputContainerEl = document.getElementById('name-input-container')
 const gameContainerEl = document.getElementById('game-container')
-let playerName = "";  // Create a new variable for the player's name
+let playerName = "" 
 
 const resultDisplayEl = document.getElementById('result-display')
 const playerScoreEl = document.getElementById('player-score')
@@ -33,6 +33,17 @@ nameSubmitEl.addEventListener('click', setName)
 
 
 /*-------------------------------- Functions --------------------------------*/
+function setName() {
+  playerName = nameInputEl.value
+  if (playerName) { // If the name isn't empty
+    gameContainerEl.style.display = "block"  // Show the game
+    nameInputContainerEl.style.display = "none" // Hide the name input
+  } else {
+    alert("Please enter your name!")
+  }
+}
+
+
 function getPlayerChoice(evt) {
   playerChoice = evt.target.id
 }
@@ -98,6 +109,7 @@ function render() {
   msgEl.className = 'popup-message'
   msgEl.textContent = msg
 
+
   clearHighlights()
   // Highlight computer's and player's choices
   if (playerChoice === computerChoice) {
@@ -115,7 +127,7 @@ function render() {
   resultDisplayEl.style.left = `${buttonPosition.left}px`
   resultDisplayEl.style.top = `${buttonPosition.top - resultDisplayEl.clientHeight - 20}px`
 
-  playerScoreEl.textContent = `Your score: ${playerScore}`
+  playerScoreEl.textContent = `${playerName}'s score: ${playerScore}`
   computerScoreEl.textContent = `Computer score: ${computerScore}`
   setTimeout(clearHighlights, 4000)
 }

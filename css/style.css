@@ -75,3 +75,11 @@ button.highlight-both {
   margin-top: 150px;
   margin-left: 20px;
 }
+
+#name-input {
+  height: 50px;
+  font-size: 24px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid rgba(0,0,0,0.5);
+}
