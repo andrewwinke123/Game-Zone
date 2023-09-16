@@ -42,7 +42,9 @@ function compare() {
 
 function play(evt) {
   getPlayerChoice(evt)
-  console.log(playerChoice)
+  getComputerChoice()
+  compare()
+  render()
 }
 
 function render() {
