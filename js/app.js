@@ -39,19 +39,19 @@ function compare() {
     msg = 'You tied!'
     gameAudio.playLoseSound()
   } else if (playerChoice === choices[0] && computerChoice === choices[1]) {
-    msg = 'You LOOOOOOSE'
+    msg = 'You lose.'
     computerScore++
     gameAudio.playLoseSound()
   } else if (playerChoice === choices[1] && computerChoice === choices[2]) {
-    msg = 'You LOOOOOOSE'
+    msg = 'You lose.'
     computerScore++
     gameAudio.playLoseSound()
   } else if (playerChoice === choices[2] && computerChoice === choices[0]) {
-    msg = 'You LOOOOOOSE'
+    msg = 'You lose.'
     computerScore++
     gameAudio.playLoseSound()
   } else {
-    msg = 'Congrats! you WIN!!!!'
+    msg = 'You WIN!!!!'
     playerScore++
     gameAudio.playWinSound()
     confetti.start(1000)
@@ -65,14 +65,45 @@ function play(evt) {
   render()
 }
 
+// highlight function
+function highlightChoice(choice, className) {
+  const btn = document.getElementById(choice)
+  if (className === 'highlight-both') {
+    btn.classList.add('highlight-both')
+  } else {
+    btn.classList.add(className)
+  }
+}
+
+
+
+// Remove highlights from all buttons
+function clearHighlights() {
+  choices.forEach(choice => {
+    const btn = document.getElementById(choice)
+    btn.classList.remove('highlight-computer', 'highlight-player', 'highlight-both')
+  })
+}
+
 function render() {
   const msgEl = document.createElement('span')
   msgEl.className = 'popup-message'
   msgEl.textContent = msg
 
-  resultDisplayEl.textContent = `You chose ${playerChoice} and the computer chose ${computerChoice}.`
-  resultDisplayEl.appendChild(msgEl)
-  
+  clearHighlights()
+  // Highlight computer's and player's choices
+  if (playerChoice === computerChoice) {
+    // Both chose the same, highlight grey
+    highlightChoice(playerChoice, 'highlight-both')
+  } else {
+    // Different choices, highlight individually
+    highlightChoice(computerChoice, 'highlight-computer')
+    highlightChoice(playerChoice, 'highlight-player')
+  }
+
+  resultDisplayEl.textContent = `${msgEl.textContent}`
+
   playerScoreEl.textContent = `Your score: ${playerScore}`
   computerScoreEl.textContent = `Computer score: ${computerScore}`
+  setTimeout(clearHighlights, 4000)
 }
