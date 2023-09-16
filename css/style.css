@@ -83,3 +83,18 @@ button.highlight-both {
   border-radius: 5px;
   border: 1px solid rgba(0,0,0,0.5);
 }
+
+#name-submit {
+  font-size: 25px;
+  border-radius: 9px;
+  height: 70px;
+  background-color: rgb(42, 68, 76);
+  color: white;
+}
+
+#name-submit:hover {
+  border: 1px solid rgba(0,0,0,0.5);
+	cursor: pointer;
+  background-color: lightblue;
+  color: black;
+}
