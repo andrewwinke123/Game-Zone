@@ -44,3 +44,7 @@ function play(evt) {
   getPlayerChoice(evt)
   console.log(playerChoice)
 }
+
+function render() {
+  resultDisplayEl.textContent = `You chose ${playerChoice} and the computer chose ${computerChoice}. ${msg}`
+}
