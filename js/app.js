@@ -18,9 +18,10 @@ document.getElementById('scissors').addEventListener('click', play)
 
 /*-------------------------------- Functions --------------------------------*/
 function getPlayerChoice(evt) {
-  console.log('getPlayerChoice:', evt)
+  playerChoice = evt.target.id
 }
 
 function play(evt) {
   getPlayerChoice(evt)
+  console.log(playerChoice)
 }
