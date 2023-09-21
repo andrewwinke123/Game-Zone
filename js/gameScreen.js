@@ -10,10 +10,23 @@ const gameScreenEl = document.getElementById('game-screen')
 const nameInputEl = document.getElementById('name-input')
 const nameSubmitEl = document.getElementById('name-submit')
 const nameInputContainerEl = document.getElementById('name-input-container')
+const rockGameLinkEl = document.getElementById('rock-game')
+const ticGameLinkEl = document.getElementById('tic-game')
+const rockGameContainerEl = document.getElementById('rock-game-container')
+const ticGameContainerEl = document.getElementById('tic-game-container')
 
 /*----------------------------- Event Listeners -----------------------------*/
 nameSubmitEl.addEventListener('click', setName)
+rockGameLinkEl.addEventListener('click', showRockGame)
+ticGameLinkEl.addEventListener('click', showTicGame)
 
+//back button
+const backToGameScreenFromRockEl = document.getElementById('back-to-game-screen-from-rock')
+const backToGameScreenFromTicEl = document.getElementById('back-to-game-screen-from-tic')
+
+//back button
+backToGameScreenFromRockEl.addEventListener('click', showGameScreen)
+backToGameScreenFromTicEl.addEventListener('click', showGameScreen)
 
 /*-------------------------------- Functions --------------------------------*/
 function setName() {
@@ -24,4 +37,22 @@ function setName() {
   } else {
     alert("Please enter your name!")
   }
+}
+
+function showRockGame(event) {
+  event.preventDefault() // Prevent the default action of the anchor tag
+  gameScreenEl.style.display = "none" 
+  rockGameContainerEl.style.display = "block" 
+}
+
+function showTicGame(event) {
+  event.preventDefault() // Prevent the default action of the anchor tag
+  gameScreenEl.style.display = "none" 
+  ticGameContainerEl.style.display = "block" 
+}
+
+function showGameScreen() {
+  gameScreenEl.style.display = "block" // Show the game screen
+  rockGameContainerEl.style.display = "none" // Hide the rock game container
+  ticGameContainerEl.style.display = "none" // Hide the tic game container
 }

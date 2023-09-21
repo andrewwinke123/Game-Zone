@@ -14,11 +14,10 @@ let playerName = ""
 
 
 /*------------------------ Cached Element References ------------------------*/
-const rockGameContainerEl = document.getElementById('rock-game-container')
-
 const resultDisplayEl = document.getElementById('result-display')
 const playerScoreEl = document.getElementById('player-score')
 const computerScoreEl = document.getElementById('computer-score')
+
 
 
 /*----------------------------- Event Listeners -----------------------------*/
@@ -28,19 +27,6 @@ document.getElementById('scissors').addEventListener('click', play)
 
 
 
-// const nameInputEl = document.getElementById('name-input')
-// const nameSubmitEl = document.getElementById('name-submit')
-// const nameInputContainerEl = document.getElementById('name-input-container')
-// nameSubmitEl.addEventListener('click', setName)
-// function setName() {
-//   playerName = nameInputEl.value
-//   if (playerName) { // If the name isn't empty
-//     rockGameContainerEl.style.display = "block"  // Show the game
-//     nameInputContainerEl.style.display = "none" // Hide the name input
-//   } else {
-//     alert("Please enter your name!")
-//   }
-// }
 
 
 
