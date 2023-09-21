@@ -14,10 +14,14 @@ let playerName = ""
 
 
 /*------------------------ Cached Element References ------------------------*/
+const rockGameContainerEl = document.getElementById('rock-game-container')
 const resultDisplayEl = document.getElementById('result-display')
 const playerScoreEl = document.getElementById('player-score')
 const computerScoreEl = document.getElementById('computer-score')
 
+const nameInputEl = document.getElementById('name-input')
+const nameSubmitEl = document.getElementById('name-submit')
+const nameInputContainerEl = document.getElementById('name-input-container')
 
 
 /*----------------------------- Event Listeners -----------------------------*/
@@ -27,6 +31,10 @@ document.getElementById('scissors').addEventListener('click', play)
 
 
 
+nameSubmitEl.addEventListener('click', setName)
+function setName() {
+  playerName = nameInputEl.value
+}
 
 
 
