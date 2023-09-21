@@ -10,14 +10,11 @@ const choices = ['rock', 'paper', 'scissors']
 let playerChoice, computerChoice, msg
 let playerScore = 0
 let computerScore = 0
+let playerName = "" 
 
 
 /*------------------------ Cached Element References ------------------------*/
-const nameInputEl = document.getElementById('name-input')
-const nameSubmitEl = document.getElementById('name-submit')
-const nameInputContainerEl = document.getElementById('name-input-container')
-const gameContainerEl = document.getElementById('game-container')
-let playerName = "" 
+const rockGameContainerEl = document.getElementById('rock-game-container')
 
 const resultDisplayEl = document.getElementById('result-display')
 const playerScoreEl = document.getElementById('player-score')
@@ -28,21 +25,26 @@ const computerScoreEl = document.getElementById('computer-score')
 document.getElementById('rock').addEventListener('click', play)
 document.getElementById('paper').addEventListener('click', play)
 document.getElementById('scissors').addEventListener('click', play)
-nameSubmitEl.addEventListener('click', setName)
+
+
+
+// const nameInputEl = document.getElementById('name-input')
+// const nameSubmitEl = document.getElementById('name-submit')
+// const nameInputContainerEl = document.getElementById('name-input-container')
+// nameSubmitEl.addEventListener('click', setName)
+// function setName() {
+//   playerName = nameInputEl.value
+//   if (playerName) { // If the name isn't empty
+//     rockGameContainerEl.style.display = "block"  // Show the game
+//     nameInputContainerEl.style.display = "none" // Hide the name input
+//   } else {
+//     alert("Please enter your name!")
+//   }
+// }
 
 
 
 /*-------------------------------- Functions --------------------------------*/
-function setName() {
-  playerName = nameInputEl.value
-  if (playerName) { // If the name isn't empty
-    gameContainerEl.style.display = "block"  // Show the game
-    nameInputContainerEl.style.display = "none" // Hide the name input
-  } else {
-    alert("Please enter your name!")
-  }
-}
-
 
 function getPlayerChoice(evt) {
   playerChoice = evt.target.id
@@ -93,8 +95,6 @@ function highlightChoice(choice, className) {
     btn.classList.add(className)
   }
 }
-
-
 
 // Remove highlights from all buttons
 function clearHighlights() {
