@@ -6,9 +6,8 @@ html, body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   margin: 0;
   height: 100vh;
-  flex-direction: column;
+  /* flex-direction: column; */
 }
-
 
 .score-container {
   display: flex;
@@ -55,7 +54,7 @@ button:hover {
   font-size: 2em;
   background-color: rgb(191, 239, 255); 
   padding: 5px 15px; 
-  margin-left: 10px;
+  margin-left: 100px;
   border-radius: 5px; 
   box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
 }
@@ -77,8 +76,8 @@ button.highlight-both {
 #result-display {
   position: absolute;
   transition: top 0.2s, left 0.2s;
-  margin-top: 150px;
-  margin-left: 20px;
+  margin-top: -17%;
+  margin-left: 0%;
 }
 
 #name-input {
