@@ -10,6 +10,9 @@ let tie
 
 /*------------------------ Cached Element References ------------------------*/
 const ticGameContainerEl = document.getElementById('tic-game-container')
+const squareEls = document.querySelectorAll('.sqr')
+const messageEl = document.getElementById('message')
+
 
 /*----------------------------- Event Listeners -----------------------------*/
 
