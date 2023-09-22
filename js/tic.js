@@ -20,9 +20,16 @@ const messageEl = document.getElementById('message')
 
 /*-------------------------------- Functions --------------------------------*/
 
+function init() {
+  board = [null, null, null, null, null, null, null, null, null]
+  turn = -1
+  winner = false
+  tie = false
+  render()
+}
 
 
-
+init()
 
 
 // 1) Define the required variables used to track the state of the game
