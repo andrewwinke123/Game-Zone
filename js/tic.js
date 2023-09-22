@@ -22,7 +22,7 @@ const messageEl = document.getElementById('message')
 init()
 
 function init() {
-  board = [null, null, null, null, null, null, null, null, null]
+  board = [null, -1, 1, null, null, null, null, null, null]
   turn = -1
   winner = false
   tie = false
@@ -30,23 +30,23 @@ function init() {
 }
 
 function render() {
-
+  updateBoard()
 }
 
 function updateBoard() {
   board.forEach(function(boardValue, idx) {
     if (board[idx] === 1) {
       //Display x
+      squareEls[idx].textContent = 'X'
     } else if (board[idx] === -1) {
       //Display 0
+      squareEls[idx].textContent = '0'
     } else {
       //Display nothing
+      squareEls[idx].textContent = ''
     }
   })
-  console.log(board)
 }
-
-updateBoard()
 
 
 // 1) Define the required variables used to track the state of the game
