@@ -31,15 +31,17 @@ function init() {
 
 function render() {
   updateBoard()
+  updateBoard()
 }
 
-function updateBoard() {
+                        //element,    index
+function updateBoard() {//board[idx], idx
   board.forEach(function(boardValue, idx) {
-    if (board[idx] === 1) {
+    if (boardValue === 1) {
       //Display x
       squareEls[idx].textContent = 'X'
       squareEls[idx].style.backgroundColor = 'lightsalmon'
-    } else if (board[idx] === -1) {
+    } else if (boardValue === -1) {
       //Display 0
       squareEls[idx].textContent = '0'
       squareEls[idx].style.backgroundColor = 'lightseagreen'
@@ -49,6 +51,16 @@ function updateBoard() {
       squareEls[idx].style.backgroundColor = 'grey'
     }
   })
+}
+
+function updateMessage() {
+  if (winner === false && tie === false) {
+    messageEl.textContent = `It's ${turn === 1 ? 'X' : 'O'}'s turn!`
+  } else if (winner === false && tie === true) {
+    messageEl.textContent = `It's a tie.`
+  } else {
+    messageEl.textContent = `${turn === 1 ? 'O' : 'X'} WINS!!!`
+  }
 }
 
 
