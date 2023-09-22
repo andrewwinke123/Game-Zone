@@ -38,12 +38,15 @@ function updateBoard() {
     if (board[idx] === 1) {
       //Display x
       squareEls[idx].textContent = 'X'
+      squareEls[idx].style.backgroundColor = 'lightsalmon'
     } else if (board[idx] === -1) {
       //Display 0
       squareEls[idx].textContent = '0'
+      squareEls[idx].style.backgroundColor = 'lightseagreen'
     } else {
       //Display nothing
       squareEls[idx].textContent = ''
+      squareEls[idx].style.backgroundColor = 'grey'
     }
   })
 }
