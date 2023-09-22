@@ -72,6 +72,10 @@ function updateMessage() {
   }
 }
 
+function handleClick(evt) {
+
+}
+
 
 // 1) Define the required variables used to track the state of the game
 
