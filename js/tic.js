@@ -19,6 +19,7 @@ const messageEl = document.getElementById('message')
 
 
 /*-------------------------------- Functions --------------------------------*/
+init()
 
 function init() {
   board = [null, null, null, null, null, null, null, null, null]
@@ -28,8 +29,24 @@ function init() {
   render()
 }
 
+function render() {
 
-init()
+}
+
+function updateBoard() {
+  board.forEach(function(boardValue, idx) {
+    if (board[idx] === 1) {
+      //Display x
+    } else if (board[idx] === -1) {
+      //Display 0
+    } else {
+      //Display nothing
+    }
+  })
+  console.log(board)
+}
+
+updateBoard()
 
 
 // 1) Define the required variables used to track the state of the game
