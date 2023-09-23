@@ -42,7 +42,7 @@ function init() {
 
 function render() {
   updateBoard()
-  updateBoard()
+  updateMessage()
 }
 
                         //element,    index
@@ -78,7 +78,7 @@ function handleClick(evt) {
   const sqrIdx = parseInt(evt.target.id.slice(2))
   //// const sqrIdx = evt.target.id[2]
   //// const sqrIdx = evt.target.id.replace('sq', '')
-  console.log(sqrIdx)
+  if (board[sqrIdx] || winner) return
 }
 
 
