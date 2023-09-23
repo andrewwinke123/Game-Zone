@@ -24,7 +24,9 @@ const messageEl = document.getElementById('message')
 
 
 /*----------------------------- Event Listeners -----------------------------*/
-
+squareEls.forEach(function(square) {
+  square.addEventListener('click', handleClick)
+})
 
 
 /*-------------------------------- Functions --------------------------------*/
@@ -73,7 +75,10 @@ function updateMessage() {
 }
 
 function handleClick(evt) {
-
+  const sqrIdx = parseInt(evt.target.id.slice(2))
+  //// const sqrIdx = evt.target.id[2]
+  //// const sqrIdx = evt.target.id.replace('sq', '')
+  console.log(sqrIdx)
 }
 
 
