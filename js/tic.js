@@ -28,6 +28,8 @@ squareEls.forEach(function(square) {
   square.addEventListener('click', handleClick)
 })
 
+resetEl.addEventListener('click', init)
+
 
 /*-------------------------------- Functions --------------------------------*/
 init()
@@ -37,6 +39,7 @@ function init() {
   turn = -1
   winner = false
   tie = false
+  resetEl.style = 'display: none;'
   render()
 }
 
@@ -68,6 +71,7 @@ function updateMessage() {
     messageEl.textContent = `It's ${turn === 1 ? 'X' : 'O'}'s turn!`
   } else if (winner === false && tie === true) {
     messageEl.textContent = `It's a tie.`
+    resetEl.style = ''
   } else {
     messageEl.textContent = `${turn === -1 ? 'X' : 'O'} WINS!!!`
     resetEl.style = ''
@@ -112,18 +116,3 @@ function placePiece(idx) {
   board[idx] = turn
   turn *= -1
 }
-
-// 1) Define the required variables used to track the state of the game
-
-// 2) Store cached element references
-
-// 3) Upon loading, the game state should be initialized, and a function should be 
-//    called to render this game state
-
-// 4) The state of the game should be rendered to the user
-
-// 5) Define the required constants
-
-// 6) Handle a player clicking a square with a `handleClick` function
-
-// 7) Create Reset functionality

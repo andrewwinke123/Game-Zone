@@ -31,7 +31,7 @@ html, body {
   width: 700px;
 }
 
-button {
+.rps-button {
   padding: 10px;
   margin: 10px;
   font-size: 40px;
@@ -145,6 +145,8 @@ section.board {
   background-color: white;
   height: 70px;
   width: 120px;
+  margin: 10px;
+  font-size: 40px;
 }
 
 #reset:hover {
