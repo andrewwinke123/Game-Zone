@@ -45,7 +45,6 @@ function render() {
   updateMessage()
 }
 
-                        //element,    index
 function updateBoard() {//board[idx], idx
   board.forEach(function(boardValue, idx) {
     if (boardValue === 1) {
@@ -79,9 +78,12 @@ function handleClick(evt) {
   //// const sqrIdx = evt.target.id[2]
   //// const sqrIdx = evt.target.id.replace('sq', '')
   if (board[sqrIdx] || winner) return
+  placePiece(sqrIdx)
 }
 
-
+function placePiece(idx) {  
+  board[idx] = turn
+}
 // 1) Define the required variables used to track the state of the game
 
 // 2) Store cached element references
