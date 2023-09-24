@@ -81,6 +81,14 @@ function handleClick(evt) {
   placePiece(sqrIdx)
 }
 
+function checkForTie() {
+  if (board.includes(null)) {
+    return
+  } else {
+    tie = true
+  }
+}
+
 function placePiece(idx) {  
   board[idx] = turn
 }
