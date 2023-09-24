@@ -79,6 +79,7 @@ function handleClick(evt) {
   //// const sqrIdx = evt.target.id.replace('sq', '')
   if (board[sqrIdx] || winner) return
   placePiece(sqrIdx)
+  checkForTie()
 }
 
 function checkForTie() {
