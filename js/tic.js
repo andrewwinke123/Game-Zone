@@ -21,7 +21,7 @@ let tie
 const ticGameContainerEl = document.getElementById('tic-game-container')
 const squareEls = document.querySelectorAll('.sqr')
 const messageEl = document.getElementById('message')
-
+const resetEl = document.getElementById('reset')
 
 /*----------------------------- Event Listeners -----------------------------*/
 squareEls.forEach(function(square) {
@@ -70,6 +70,7 @@ function updateMessage() {
     messageEl.textContent = `It's a tie.`
   } else {
     messageEl.textContent = `${turn === -1 ? 'X' : 'O'} WINS!!!`
+    resetEl.style = ''
   }
 }
 
@@ -111,6 +112,7 @@ function placePiece(idx) {
   board[idx] = turn
   turn *= -1
 }
+
 // 1) Define the required variables used to track the state of the game
 
 // 2) Store cached element references

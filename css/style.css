@@ -138,3 +138,15 @@ section.board {
   text-align: center;
   vertical-align: middle;
 }
+
+#reset {
+  margin-top: 15px;
+  border-radius: 9px;
+  background-color: white;
+  height: 70px;
+  width: 120px;
+}
+
+#reset:hover {
+  background-color: cornflowerblue;
+}
