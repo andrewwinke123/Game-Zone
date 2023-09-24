@@ -33,7 +33,7 @@ squareEls.forEach(function(square) {
 init()
 
 function init() {
-  board = [1, -1, null, null, null, null, null, null, null]
+  board = [null, null, null, null, null, null, null, null, null]
   turn = -1
   winner = false
   tie = false
@@ -53,7 +53,7 @@ function updateBoard() {//board[idx], idx
       squareEls[idx].style.backgroundColor = 'lightsalmon'
     } else if (boardValue === -1) {
       //Display 0
-      squareEls[idx].textContent = '0'
+      squareEls[idx].textContent = 'O'
       squareEls[idx].style.backgroundColor = 'lightseagreen'
     } else {
       //Display nothing
@@ -69,7 +69,7 @@ function updateMessage() {
   } else if (winner === false && tie === true) {
     messageEl.textContent = `It's a tie.`
   } else {
-    messageEl.textContent = `${turn === 1 ? 'O' : 'X'} WINS!!!`
+    messageEl.textContent = `${turn === -1 ? 'X' : 'O'} WINS!!!`
   }
 }
 
@@ -80,10 +80,27 @@ function handleClick(evt) {
   if (board[sqrIdx] || winner) return
   placePiece(sqrIdx)
   checkForTie()
+  checkForWinner()
+  render()
+}
+
+function checkForWinner() {
+  if (
+    Math.abs(board[0] + board[1] + board[2]) === 3 ||
+    Math.abs(board[3] + board[4] + board[5]) === 3 ||
+    Math.abs(board[6] + board[7] + board[8]) === 3 ||
+    Math.abs(board[0] + board[3] + board[6]) === 3 ||
+    Math.abs(board[1] + board[4] + board[7]) === 3 ||
+    Math.abs(board[2] + board[5] + board[8]) === 3 ||
+    Math.abs(board[2] + board[4] + board[6]) === 3 ||
+    Math.abs(board[0] + board[4] + board[8]) === 3
+    ) {
+    winner = true
+  }
 }
 
 function checkForTie() {
-  if (board.includes(null)) {
+  if (board.includes(null) && !winner) {
     return
   } else {
     tie = true
@@ -92,6 +109,7 @@ function checkForTie() {
 
 function placePiece(idx) {  
   board[idx] = turn
+  turn *= -1
 }
 // 1) Define the required variables used to track the state of the game
 
