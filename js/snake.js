@@ -8,6 +8,7 @@ const snakeBody = [{ x: 11, y: 11}]
 let lastRenderTime = 0
 let inputDirection = { x: 0, y: 0 }
 let lastInputDirection = { x: 0, y: 0 }
+let food = { x: 0, y: 0 }
 
 /*------------------------ Cached Element References ------------------------*/
 const snakeGameContainerEl = document.getElementById('snake-game-container')
@@ -84,4 +85,18 @@ function drawSnake(gameBoard) {
 function getInputDireciton() {
   lastInputDirection = inputDirection
   return inputDirection
+}
+
+
+
+function updateFood() {
+
+}
+
+function drawFood(gameBoard) {
+    const foodElement = document.createElement('div')
+    foodElement.style.gridRowStart = food.y
+    foodElement.style.gridColumnStart = food.x
+    foodElement.classList.add('food')
+    gameBoard.appendChild(foodElement)
 }
