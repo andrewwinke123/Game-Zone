@@ -8,7 +8,7 @@ const snakeBody = [{ x: 11, y: 11}]
 let lastRenderTime = 0
 let inputDirection = { x: 0, y: 0 }
 let lastInputDirection = { x: 0, y: 0 }
-let food = { x: 0, y: 0 }
+let food = { x: 10, y: 1 }
 
 /*------------------------ Cached Element References ------------------------*/
 const snakeGameContainerEl = document.getElementById('snake-game-container')
@@ -55,11 +55,13 @@ window.requestAnimationFrame(main)
 
 function update() {
   updateSnake()
+  updateFood()
 }
 
 function draw() {
   gameBoard.innerHTML = ''
   drawSnake(gameBoard)
+  drawFood(gameBoard)
 }
 
 function updateSnake() {
