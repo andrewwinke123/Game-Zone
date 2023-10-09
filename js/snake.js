@@ -3,13 +3,14 @@
 const snakeSpeed = 5
 const snakeBody = [{ x: 11, y: 11}]
 const expansionRate = 3
+const gridSize = 21
 
 
 /*-------------------------------- Variables --------------------------------*/
 let lastRenderTime = 0
 let inputDirection = { x: 0, y: 0 }
 let lastInputDirection = { x: 0, y: 0 }
-let food = { x: 10, y: 1 }
+let food = getRandomFoodPosition()
 let newSegments = 0
 
 /*------------------------ Cached Element References ------------------------*/
@@ -98,7 +99,7 @@ function getInputDireciton() {
 function updateFood() {
   if (onSnake(food)) {
     expandSnake(expansionRate)
-    food = { x: 20, y: 10 }
+    food = getRandomFoodPosition()
   }
 }
 
@@ -129,4 +130,19 @@ function addSegments() {
     snakeBody.push({ ...snakeBody[snakeBody.length - 1] })
   }
   newSegments = 0
+}
+
+function getRandomFoodPosition() {
+  let newFoodPosition
+  while (newFoodPosition == null || onSnake(newFoodPosition)) {
+    newFoodPosition = randomGridPosition()
+  }
+  return newFoodPosition
+}
+
+function randomGridPosition() {
+  return {
+    x: Math.floor(Math.random() * gridSize) + 1,
+    y: Math.floor(Math.random() * gridSize) + 1
+  }
 }
