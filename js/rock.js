@@ -80,7 +80,7 @@ function play(evt) {
   render()
 }
 
-// highlight function
+// Highlight function
 function highlightChoice(choice, className) {
   const btn = document.getElementById(choice)
   if (className === 'highlight-both') {

@@ -12,21 +12,26 @@ const nameSubmitEl = document.getElementById('name-submit')
 const nameInputContainerEl = document.getElementById('name-input-container')
 const rockGameLinkEl = document.getElementById('rock-game')
 const ticGameLinkEl = document.getElementById('tic-game')
+const snakeGameLinkEl = document.getElementById('tic-game')
 const rockGameContainerEl = document.getElementById('rock-game-container')
 const ticGameContainerEl = document.getElementById('tic-game-container')
+const snakeGameContainerEl = document.getElementById('snake-game-container')
 
 /*----------------------------- Event Listeners -----------------------------*/
 nameSubmitEl.addEventListener('click', setName)
 rockGameLinkEl.addEventListener('click', showRockGame)
 ticGameLinkEl.addEventListener('click', showTicGame)
+snakeGameLinkEl.addEventListener('click', showSnakeGame)
 
 //back button
 const backToGameScreenFromRockEl = document.getElementById('back-to-game-screen-from-rock')
 const backToGameScreenFromTicEl = document.getElementById('back-to-game-screen-from-tic')
+const backToGameScreenFromSnakeEl = document.getElementById('back-to-game-screen-from-snake')
 
 //back button
 backToGameScreenFromRockEl.addEventListener('click', showGameScreen)
 backToGameScreenFromTicEl.addEventListener('click', showGameScreen)
+backToGameScreenFromSnakeEl.addEventListener('click', showGameScreen)
 
 /*-------------------------------- Functions --------------------------------*/
 function setName() {
@@ -49,6 +54,11 @@ function showTicGame(event) {
   event.preventDefault() // Prevent the default action of the anchor tag
   gameScreenEl.style.display = "none" 
   ticGameContainerEl.style.display = "block" 
+}
+function showSnakeGame(event) {
+  event.preventDefault() // Prevent the default action of the anchor tag
+  gameScreenEl.style.display = "none" 
+  snakeGameContainerEl.style.display = "block" 
 }
 
 function showGameScreen() {

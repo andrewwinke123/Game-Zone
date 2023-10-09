@@ -152,3 +152,8 @@ section.board {
 #reset:hover {
   background-color: cornflowerblue;
 }
+
+#snake-game-board {
+  background-color: #ccc;
+  width: 100vmin;
+}

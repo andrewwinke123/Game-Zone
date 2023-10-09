@@ -10,6 +10,7 @@
   <script defer type="module" src="./js/gameScreen.js"></script>
   <script defer type="module" src="./js/rock.js"></script>
   <script defer type="module" src="./js/tic.js"></script>
+  <script defer type="module" src="./js/snake.js"></script>
 </head>
 
 <body>
@@ -24,8 +25,12 @@
       <div class="choice-container">
         <h5><a href="#"  id="rock-game">Rock Paper Scissors Shoe</a></h5>
         <h5><h5><a href="#"   id="tic-game">Tic Tac Toe</a></h5>
+        <h5><h5><a href="#"   id="snake-game">Snake</a></h5>
       </div>
     </div>
+    <!--Snake Game container-->
+    <div id="snake-game-container" style="display: none;"></div>
+    <button id="back-to-game-screen-from-snake" class="back-button">Back</button>
     <!-- Rock Paper Game container -->
     <div id="rock-game-container" style="display: none;">
       <button id="back-to-game-screen-from-rock" class="back-button">Back</button>
