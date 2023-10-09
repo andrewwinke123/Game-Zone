@@ -2,6 +2,7 @@
 /*-------------------------------- Constants --------------------------------*/
 const snakeSpeed = 2
 const snakeBody = [{ x: 11, y: 11}]
+const expansionRate = 1
 
 
 /*-------------------------------- Variables --------------------------------*/
@@ -9,6 +10,7 @@ let lastRenderTime = 0
 let inputDirection = { x: 0, y: 0 }
 let lastInputDirection = { x: 0, y: 0 }
 let food = { x: 10, y: 1 }
+let newSegments = 0
 
 /*------------------------ Cached Element References ------------------------*/
 const snakeGameContainerEl = document.getElementById('snake-game-container')
@@ -92,7 +94,10 @@ function getInputDireciton() {
 
 
 function updateFood() {
-
+  if (onSnake(food)) {
+    expandSnake(expansionRate)
+    food = { x: 20, y: 10 }
+  }
 }
 
 function drawFood(gameBoard) {
@@ -101,4 +106,18 @@ function drawFood(gameBoard) {
     foodElement.style.gridColumnStart = food.x
     foodElement.classList.add('food')
     gameBoard.appendChild(foodElement)
+}
+
+function expandSnake(amount) {
+  newSegments += amount
+}
+
+function onSnake(position) {
+  return snakeBody.some(segment => {
+    return equalPositions(segment, position)
+  })
+}
+
+function equalPositions(pos1, pos2) {
+  return pos1.x === pos2.x && pos1.y === pos2.y
 }
