@@ -6,6 +6,7 @@ const snakeBody = [{ x: 11, y: 11}]
 
 /*-------------------------------- Variables --------------------------------*/
 let lastRenderTime = 0
+let inputDirection = { x: 0, y: 0 }
 
 /*------------------------ Cached Element References ------------------------*/
 const snakeGameContainerEl = document.getElementById('snake-game-container')
@@ -13,7 +14,22 @@ const  gameBoard = document.getElementById('snake-game-board')
 
 
 /*----------------------------- Event Listeners -----------------------------*/
-
+window.addEventListener('keydown', evt => {
+  switch (evt.key) {
+    case 'ArrowUp':
+      inputDirection = { x: 0, y: -1 }
+      break
+    case 'ArrowDown':
+      inputDirection = { x: 0, y: 1 }
+      break
+    case 'ArrowLeft':
+      inputDirection = { x: -1, y: 0 }
+      break
+    case 'ArrowRight':
+      inputDirection = { x: 1, y: 0 }
+      break
+  }
+})
 
 /*-------------------------------- Functions --------------------------------*/
 function main(currentTime) {
@@ -41,15 +57,16 @@ function draw() {
 }
 
 function updateSnake() {
+  const inputDirection = getInputDireciton()
   for (let i = snakeBody.length - 2; i >= 0; i--) {
     snakeBody[i + 1] = { ...snakeBody[i] }
   }
 
-  snakeBody[0].x += 0
-  snakeBody[0].y += 1
+  snakeBody[0].x += inputDirection.x
+  snakeBody[0].y += inputDirection.y
 }
 
-function drawSnake() {
+function drawSnake(gameBoard) {
   snakeBody.forEach(segment => {
     const snakeElement = document.createElement('div')
     snakeElement.style.gridRowStart = segment.y
@@ -57,4 +74,8 @@ function drawSnake() {
     snakeElement.classList.add('snake')
     gameBoard.appendChild(snakeElement)
   })
+}
+
+function getInputDireciton() {
+  return inputDirection
 }
