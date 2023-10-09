@@ -106,10 +106,22 @@ button.highlight-both {
 #tic-game-container {
   position: relative;
 }
+
 #rock-game-container {
   position: relative;
   box-sizing: border-box;
   width: 100%;
+}
+
+#snake-game-board {
+  position: relative;
+  background-color: #ccc;
+  width: 100vmin;
+}
+
+#snake-game-container .back-button {
+  top: 70%;
+  left: 70%;
 }
 
 .back-button {
@@ -151,9 +163,4 @@ section.board {
 
 #reset:hover {
   background-color: cornflowerblue;
-}
-
-#snake-game-board {
-  background-color: #ccc;
-  width: 100vmin;
 }

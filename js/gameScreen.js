@@ -12,7 +12,7 @@ const nameSubmitEl = document.getElementById('name-submit')
 const nameInputContainerEl = document.getElementById('name-input-container')
 const rockGameLinkEl = document.getElementById('rock-game')
 const ticGameLinkEl = document.getElementById('tic-game')
-const snakeGameLinkEl = document.getElementById('tic-game')
+const snakeGameLinkEl = document.getElementById('snake-game')
 const rockGameContainerEl = document.getElementById('rock-game-container')
 const ticGameContainerEl = document.getElementById('tic-game-container')
 const snakeGameContainerEl = document.getElementById('snake-game-container')
@@ -65,4 +65,5 @@ function showGameScreen() {
   gameScreenEl.style.display = "block" // Show the game screen
   rockGameContainerEl.style.display = "none" // Hide the rock game container
   ticGameContainerEl.style.display = "none" // Hide the tic game container
+  snakeGameContainerEl.style.display = "none" // Hide the snake game container
 }
