@@ -7,6 +7,7 @@ const snakeBody = [{ x: 11, y: 11}]
 /*-------------------------------- Variables --------------------------------*/
 let lastRenderTime = 0
 let inputDirection = { x: 0, y: 0 }
+let lastInputDirection = { x: 0, y: 0 }
 
 /*------------------------ Cached Element References ------------------------*/
 const snakeGameContainerEl = document.getElementById('snake-game-container')
@@ -17,15 +18,19 @@ const  gameBoard = document.getElementById('snake-game-board')
 window.addEventListener('keydown', evt => {
   switch (evt.key) {
     case 'ArrowUp':
+      if (lastInputDirection.y !== 0) break
       inputDirection = { x: 0, y: -1 }
       break
-    case 'ArrowDown':
+      case 'ArrowDown':
+      if (lastInputDirection.y !== 0) break
       inputDirection = { x: 0, y: 1 }
       break
-    case 'ArrowLeft':
+      case 'ArrowLeft':
+      if (lastInputDirection.x !== 0) break
       inputDirection = { x: -1, y: 0 }
       break
-    case 'ArrowRight':
+      case 'ArrowRight':
+      if (lastInputDirection.x !== 0) break
       inputDirection = { x: 1, y: 0 }
       break
   }
@@ -77,5 +82,6 @@ function drawSnake(gameBoard) {
 }
 
 function getInputDireciton() {
+  lastInputDirection = inputDirection
   return inputDirection
 }
