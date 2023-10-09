@@ -4,6 +4,7 @@
 
 /*-------------------------------- Variables --------------------------------*/
 let lastRenderTime = 0
+const snakeSpeed = 2
 
 /*------------------------ Cached Element References ------------------------*/
 const snakeGameContainerEl = document.getElementById('snake-game-container')
@@ -14,8 +15,11 @@ const snakeGameContainerEl = document.getElementById('snake-game-container')
 
 /*-------------------------------- Functions --------------------------------*/
 function main(currentTime) {
-  const secondsSinceLastRender = (currentTime - lastRenderTime) / 1000
   window.requestAnimationFrame(main)
+  const secondsSinceLastRender = (currentTime - lastRenderTime) / 1000
+  if (secondsSinceLastRender < 1 / snakeSpeed) return
+  
+  console.log('render')
   lastRenderTime = currentTime
 }
 
