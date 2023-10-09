@@ -180,3 +180,12 @@ section.board {
   grid-template-columns: repeat(21, 1fr);
 }
 
+.snake {
+  background-color: green;
+  border: .25vmin solid black;
+}
+
+.food {
+  background-color: red;
+  border: .25vmin solid black;
+}
