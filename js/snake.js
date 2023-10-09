@@ -1,8 +1,8 @@
 
 /*-------------------------------- Constants --------------------------------*/
-const snakeSpeed = 2
+const snakeSpeed = 5
 const snakeBody = [{ x: 11, y: 11}]
-const expansionRate = 1
+const expansionRate = 3
 
 
 /*-------------------------------- Variables --------------------------------*/
@@ -74,6 +74,8 @@ function updateSnake() {
 
   snakeBody[0].x += inputDirection.x
   snakeBody[0].y += inputDirection.y
+
+  addSegments()
 }
 
 function drawSnake(gameBoard) {
@@ -120,4 +122,11 @@ function onSnake(position) {
 
 function equalPositions(pos1, pos2) {
   return pos1.x === pos2.x && pos1.y === pos2.y
+}
+
+function addSegments() {
+  for (let i = 0; i < newSegments; i++) {
+    snakeBody.push({ ...snakeBody[snakeBody.length - 1] })
+  }
+  newSegments = 0
 }
