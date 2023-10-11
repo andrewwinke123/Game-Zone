@@ -153,6 +153,12 @@ function randomGridPosition() {
   }
 }
 
+function outsideGrid(position) {
+  return (
+    position.x < 1 || position.x > gridSize || position.y < 1 || position.y > gridSize
+  )
+}
+
 function checkDeath() {
   gameOver = outsideGrid(getSnakeHead()) || snakeIntersection()
 }
