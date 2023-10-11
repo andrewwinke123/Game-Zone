@@ -12,6 +12,7 @@ let inputDirection = { x: 0, y: 0 }
 let lastInputDirection = { x: 0, y: 0 }
 let food = getRandomFoodPosition()
 let newSegments = 0
+let gameOver = false
 
 /*------------------------ Cached Element References ------------------------*/
 const snakeGameContainerEl = document.getElementById('snake-game-container')
@@ -42,6 +43,10 @@ window.addEventListener('keydown', evt => {
 
 /*-------------------------------- Functions --------------------------------*/
 function main(currentTime) {
+  if (gameOver) {
+    return alert('you lose')
+  }
+
   window.requestAnimationFrame(main)
   const secondsSinceLastRender = (currentTime - lastRenderTime) / 1000
   if (secondsSinceLastRender < 1 / snakeSpeed) return
@@ -59,6 +64,7 @@ window.requestAnimationFrame(main)
 function update() {
   updateSnake()
   updateFood()
+  checkDeath()
 }
 
 function draw() {
@@ -145,4 +151,8 @@ function randomGridPosition() {
     x: Math.floor(Math.random() * gridSize) + 1,
     y: Math.floor(Math.random() * gridSize) + 1
   }
+}
+
+function checkDeath() {
+  gameOver = outsideGrid(getSnakeHead()) || snakeIntersection()
 }
