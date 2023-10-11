@@ -1,3 +1,6 @@
+import { confetti } from './confetti.js'
+import * as gameAudio from './audio.js'
+
 
 /*-------------------------------- Constants --------------------------------*/
 const winningCombos = [
@@ -101,6 +104,8 @@ function checkForWinner() {
     Math.abs(board[0] + board[4] + board[8]) === 3
     ) {
     winner = true
+    gameAudio.playWinSound()
+    confetti.start(1000)
   }
 }
 
@@ -109,6 +114,7 @@ function checkForTie() {
     return
   } else {
     tie = true
+    gameAudio.playLoseSound()
   }
 }
 
