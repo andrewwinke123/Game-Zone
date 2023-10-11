@@ -153,6 +153,10 @@ function randomGridPosition() {
   }
 }
 
+function getSnakeHead() {
+  return snakeBody[0]
+}
+
 function outsideGrid(position) {
   return (
     position.x < 1 || position.x > gridSize || position.y < 1 || position.y > gridSize
