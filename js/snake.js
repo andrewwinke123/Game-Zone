@@ -44,13 +44,18 @@ window.addEventListener('keydown', evt => {
 /*-------------------------------- Functions --------------------------------*/
 function main(currentTime) {
   if (gameOver) {
-    return alert('you lose')
+      if (confirm('You lost. Press ok to restart.')) {
+          resetGame()
+          draw() // Redraw immediately to reflect the reset state
+      } else {
+          return // Don't continue if the user didn't confirm
+      }
   }
 
   window.requestAnimationFrame(main)
   const secondsSinceLastRender = (currentTime - lastRenderTime) / 1000
   if (secondsSinceLastRender < 1 / snakeSpeed) return
-  
+
   console.log('render')
   lastRenderTime = currentTime
 
@@ -58,13 +63,13 @@ function main(currentTime) {
   draw()
 }
 
+
 window.requestAnimationFrame(main)
 
 
 function update() {
   updateSnake()
   updateFood()
-  checkDeath()
 }
 
 function draw() {
@@ -82,8 +87,14 @@ function updateSnake() {
   snakeBody[0].x += inputDirection.x
   snakeBody[0].y += inputDirection.y
 
+  // Check if the snake has hit the boundaries or itself
+  if (outsideGrid(getSnakeHead()) || snakeIntersection()) {
+    gameOver = true;
+  }
+
   addSegments()
 }
+
 
 function drawSnake(gameBoard) {
   snakeBody.forEach(segment => {
@@ -121,11 +132,13 @@ function expandSnake(amount) {
   newSegments += amount
 }
 
-function onSnake(position) {
-  return snakeBody.some(segment => {
+function onSnake(position, { ignoreHead = false } = {}) {
+  return snakeBody.some((segment, index) => {
+    if (ignoreHead && index === 0) return false
     return equalPositions(segment, position)
   })
 }
+
 
 function equalPositions(pos1, pos2) {
   return pos1.x === pos2.x && pos1.y === pos2.y
@@ -159,10 +172,20 @@ function getSnakeHead() {
 
 function outsideGrid(position) {
   return (
-    position.x < 1 || position.x > gridSize || position.y < 1 || position.y > gridSize
+    position.x < 1 || position.x > gridSize ||
+    position.y < 1 || position.y > gridSize
   )
 }
 
-function checkDeath() {
-  gameOver = outsideGrid(getSnakeHead()) || snakeIntersection()
+function snakeIntersection() {
+  return onSnake(snakeBody[0], { ignoreHead: true })
+}
+
+function resetGame() {
+  snakeBody.splice(0, snakeBody.length, { x: 11, y: 11 })
+  newSegments = 0
+  inputDirection = { x: 0, y: 0 }
+  lastInputDirection = { x: 0, y: 0 }
+  food = getRandomFoodPosition()
+  gameOver = false
 }
