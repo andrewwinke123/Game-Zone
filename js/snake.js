@@ -189,3 +189,4 @@ function resetGame() {
   food = getRandomFoodPosition()
   gameOver = false
 }
+
