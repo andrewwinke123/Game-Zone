@@ -199,6 +199,15 @@ section.board {
   align-items: center;
   margin: 0;
   background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;
+  text-align: center;
+  height: 280px;
+  width: 400px;
+  max-width: 100%;
+  background-color: white;
 }
 
 
@@ -210,6 +219,10 @@ section.board {
   display: grid;
   grid-template-rows: repeat(21, 1fr);
   grid-template-columns: repeat(21, 1fr);
+
+  height: 280px;
+  width: 400px;
+  max-width: 100%;
 }
 
 .snake {
