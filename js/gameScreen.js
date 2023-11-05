@@ -17,11 +17,16 @@ const rockGameContainerEl = document.getElementById('rock-game-container')
 const ticGameContainerEl = document.getElementById('tic-game-container')
 const snakeGameContainerEl = document.getElementById('snake-game-container')
 
+// Universal back button reference
+const backToGameScreenBtn = document.getElementById('back-to-game-screen')
+
+
 /*----------------------------- Event Listeners -----------------------------*/
 nameSubmitEl.addEventListener('click', setName)
 rockGameLinkEl.addEventListener('click', showRockGame)
 ticGameLinkEl.addEventListener('click', showTicGame)
 snakeGameLinkEl.addEventListener('click', showSnakeGame)
+backToGameScreenBtn.addEventListener('click', showGameScreen)
 
 //back button
 const backToGameScreenFromRockEl = document.getElementById('back-to-game-screen-from-rock')
