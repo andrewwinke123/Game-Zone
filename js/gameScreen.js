@@ -37,6 +37,7 @@ const backToGameScreenFromSnakeEl = document.getElementById('back-to-game-screen
 backToGameScreenFromRockEl.addEventListener('click', showGameScreen)
 backToGameScreenFromTicEl.addEventListener('click', showGameScreen)
 backToGameScreenFromSnakeEl.addEventListener('click', showGameScreen)
+backToGameScreenBtn.addEventListener('click', showGameScreen);
 
 /*-------------------------------- Functions --------------------------------*/
 function setName() {
@@ -74,9 +75,31 @@ function hideAllGameContainers() {
   snakeGameContainerEl.style.display = "none"
 }
 
+function goBack() {
+  // Check if any game container is visible
+  if (rockGameContainerEl.style.display === "block" || 
+      ticGameContainerEl.style.display === "block" || 
+      snakeGameContainerEl.style.display === "block") {
+    showGameScreen(); // If a game is active, go back to game selection
+  } else {
+    // If we are on the game selection screen, go back to name input
+    gameScreenEl.style.display = "none"
+    nameInputContainerEl.style.display = "block"
+  }
+}
+
 function showGameScreen() {
-  gameScreenEl.style.display = "block"
-  rockGameContainerEl.style.display = "none"
-  ticGameContainerEl.style.display = "none"
-  snakeGameContainerEl.style.display = "none"
+  // Only show the game screen if a game is currently being shown
+  if (rockGameContainerEl.style.display === "block" || 
+      ticGameContainerEl.style.display === "block" || 
+      snakeGameContainerEl.style.display === "block") {
+    hideAllGameContainers(); // Hide all games first
+    gameScreenEl.style.display = "block"; // Show the game selection screen
+  } else {
+    // Otherwise, show the name input if coming from the game screen itself
+    if (gameScreenEl.style.display === "block") {
+      gameScreenEl.style.display = "none"; // Hide the game screen
+      nameInputContainerEl.style.display = "block"; // Show the name input screen
+    }
+  }
 }
