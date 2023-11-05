@@ -257,3 +257,9 @@ section.board {
   margin: 0;
   padding: 0;
 }
+
+.back-button {
+  position: absolute;
+  bottom: 25%;
+  left: 30%;
+}

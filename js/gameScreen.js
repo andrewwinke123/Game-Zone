@@ -50,25 +50,33 @@ function setName() {
 }
 
 function showRockGame(event) {
-  event.preventDefault() // Prevent the default action of the anchor tag
-  gameScreenEl.style.display = "none" 
-  rockGameContainerEl.style.display = "block" 
+  event.preventDefault()
+  hideAllGameContainers()
+  rockGameContainerEl.style.display = "block"
 }
 
 function showTicGame(event) {
-  event.preventDefault() // Prevent the default action of the anchor tag
-  gameScreenEl.style.display = "none" 
-  ticGameContainerEl.style.display = "block" 
+  event.preventDefault()
+  hideAllGameContainers()
+  ticGameContainerEl.style.display = "block"
 }
+
 function showSnakeGame(event) {
-  event.preventDefault() // Prevent the default action of the anchor tag
-  gameScreenEl.style.display = "none" 
-  snakeGameContainerEl.style.display = "block" 
+  event.preventDefault()
+  hideAllGameContainers()
+  snakeGameContainerEl.style.display = "block"
+}
+
+function hideAllGameContainers() {
+  gameScreenEl.style.display = "none"
+  rockGameContainerEl.style.display = "none"
+  ticGameContainerEl.style.display = "none"
+  snakeGameContainerEl.style.display = "none"
 }
 
 function showGameScreen() {
-  gameScreenEl.style.display = "block" // Show the game screen
-  rockGameContainerEl.style.display = "none" // Hide the rock game container
-  ticGameContainerEl.style.display = "none" // Hide the tic game container
-  snakeGameContainerEl.style.display = "none" // Hide the snake game container
+  gameScreenEl.style.display = "block"
+  rockGameContainerEl.style.display = "none"
+  ticGameContainerEl.style.display = "none"
+  snakeGameContainerEl.style.display = "none"
 }
