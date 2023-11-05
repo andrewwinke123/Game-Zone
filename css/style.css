@@ -149,13 +149,29 @@ button.highlight-both {
 }
 
 .back-button {
-  background-color: red;
-  color: white;
+  background-color: rgb(214, 198, 177);
+  color: black;
   padding: 10px;
+  box-shadow: 3px 3px 0px #555; 
   border-radius: 9px;
   width: 50px;
   height: 50px;
   font-size: 14px;
+  position: absolute;
+  bottom: 25%;
+  left: 30%;
+}
+
+.back-button:hover {
+  border: 1px solid rgba(0,0,0,0.5);
+	cursor: pointer;
+  background-color: rgb(168, 154, 136);
+}
+
+.back-button:active {
+  box-shadow: 0px 1px 0px #555; 
+  transform: translateY(1px);
+  background-color: rgb(120, 111, 98); 
 }
 
 section.board {
@@ -256,10 +272,4 @@ section.board {
 section.board {
   margin: 0;
   padding: 0;
-}
-
-.back-button {
-  position: absolute;
-  bottom: 25%;
-  left: 30%;
 }
